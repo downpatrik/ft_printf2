@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bigint_get_index.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvenita <wvenita@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wvenita <wvenita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 01:55:33 by wvenita           #+#    #+#             */
-/*   Updated: 2020/02/24 01:55:34 by wvenita          ###   ########.fr       */
+/*   Updated: 2020/02/24 14:28:50 by wvenita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_bigint_get_index(char *str, char c)
+int	ft_bigint_get_index(char *str, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] && str[i] != c)

@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_color.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvenita <wvenita@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wvenita <wvenita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 01:30:11 by wvenita           #+#    #+#             */
-/*   Updated: 2020/02/24 01:30:12 by wvenita          ###   ########.fr       */
+/*   Updated: 2020/02/24 14:23:14 by wvenita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static const t_color g_tab_colors[] =
-		{
-				{"cyan", ANSI_COLOR_CYAN},
-				{"red", ANSI_COLOR_RED},
-				{"green", ANSI_COLOR_GREEN},
-				{"yellow", ANSI_COLOR_YELLOW},
-				{"blue", ANSI_COLOR_BLUE},
-				{"magenta", ANSI_COLOR_MAGENTA},
-				{"eoc", ANSI_COLOR_RESET},
-				{"", ""},
+static const t_color	g_tab_colors[] =
+{
+	{"cyan", ANSI_COLOR_CYAN},
+	{"red", ANSI_COLOR_RED},
+	{"green", ANSI_COLOR_GREEN},
+	{"yellow", ANSI_COLOR_YELLOW},
+	{"blue", ANSI_COLOR_BLUE},
+	{"magenta", ANSI_COLOR_MAGENTA},
+	{"eoc", ANSI_COLOR_RESET},
+	{"", ""},
 };
 
-char *ft_get_color(const char *str)
+char					*ft_get_color(const char *str)
 {
-	int len;
-	int i;
+	int	len;
+	int	i;
 
 	len = 0;
 	i = 0;

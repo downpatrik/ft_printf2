@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_precision_count.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvenita <wvenita@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wvenita <wvenita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 01:30:52 by wvenita           #+#    #+#             */
-/*   Updated: 2020/02/24 01:58:30 by wvenita          ###   ########.fr       */
+/*   Updated: 2020/02/24 14:19:35 by wvenita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_str_precision_count(char *str, int offset)
+int	ft_str_precision_count(char *str, int offset)
 {
-	int count;
-	int i;
+	int	count;
+	int	i;
 
 	i = offset;
 	count = 0;
@@ -29,7 +29,7 @@ int ft_str_precision_count(char *str, int offset)
 				i++;
 			}
 			if (str[i] == '\0')
-				break;
+				break ;
 		}
 		i++;
 	}

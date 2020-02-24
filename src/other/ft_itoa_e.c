@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_e.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvenita <wvenita@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wvenita <wvenita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 01:30:16 by wvenita           #+#    #+#             */
-/*   Updated: 2020/02/24 01:30:16 by wvenita          ###   ########.fr       */
+/*   Updated: 2020/02/24 14:19:54 by wvenita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t ft_nblen(long nb)
+static size_t	ft_nblen(long nb)
 {
-	size_t nblen;
+	size_t	nblen;
 
 	nblen = 0;
 	if (nb == 0)
@@ -28,11 +28,11 @@ static size_t ft_nblen(long nb)
 	return (nblen);
 }
 
-char *ft_itoa_e(int nb)
+char			*ft_itoa_e(int nb)
 {
-	char *output;
-	size_t nb_len;
-	long n;
+	char	*output;
+	size_t	nb_len;
+	long	n;
 
 	n = nb;
 	nb_len = ft_nblen(n) + 1;

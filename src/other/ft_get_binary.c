@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_binary.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvenita <wvenita@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wvenita <wvenita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 01:30:02 by wvenita           #+#    #+#             */
-/*   Updated: 2020/02/24 01:30:02 by wvenita          ###   ########.fr       */
+/*   Updated: 2020/02/24 14:20:32 by wvenita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *ft_get_binary(unsigned char c, char *tmp_str)
+char	*ft_get_binary(unsigned char c, char *tmp_str)
 {
-	char base[3];
-	char tmp;
-	int k;
+	char	base[3];
+	char	tmp;
+	int		k;
 
 	ft_strcpy(base, "01");
 	k = 0;

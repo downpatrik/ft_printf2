@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvenita <wvenita@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wvenita <wvenita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 21:53:27 by wvenita           #+#    #+#             */
-/*   Updated: 2020/02/24 02:00:51 by wvenita          ###   ########.fr       */
+/*   Updated: 2020/02/24 14:26:53 by wvenita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strcat(char *dest, const char *src)
+char	*ft_strcat(char *dest, const char *src)
 {
-	int i;
-	size_t n;
+	int		i;
+	size_t	n;
 
 	i = -1;
 	n = ft_strlen(dest);
@@ -25,9 +25,9 @@ char *ft_strcat(char *dest, const char *src)
 	return (dest);
 }
 
-char *ft_strcat_r(const char *src, char *dst)
+char	*ft_strcat_r(const char *src, char *dst)
 {
-	char *tmp;
+	char	*tmp;
 
 	tmp = ft_strdup(dst);
 	if (tmp == NULL)

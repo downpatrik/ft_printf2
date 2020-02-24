@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_apply_e.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvenita <wvenita@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wvenita <wvenita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 01:29:32 by wvenita           #+#    #+#             */
-/*   Updated: 2020/02/24 01:29:33 by wvenita          ###   ########.fr       */
+/*   Updated: 2020/02/24 14:24:57 by wvenita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char *get_output(char *output, int expo, int i)
+static char	*get_output(char *output, int expo, int i)
 {
-	int j;
+	int	j;
 
 	j = expo;
 	if (j > 0)
@@ -22,7 +22,7 @@ static char *get_output(char *output, int expo, int i)
 		while (j != 0)
 		{
 			if (i == 0)
-				break;
+				break ;
 			output[i] = output[i - 1];
 			output[i - 1] = '.';
 			i--;
@@ -40,7 +40,7 @@ static char *get_output(char *output, int expo, int i)
 	return (output);
 }
 
-int ft_apply_e(char *output)
+int			ft_apply_e(char *output)
 {
 	int i;
 	int j;

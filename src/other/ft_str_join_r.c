@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_str_join_r.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvenita <wvenita@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wvenita <wvenita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 01:30:45 by wvenita           #+#    #+#             */
-/*   Updated: 2020/02/24 01:30:45 by wvenita          ###   ########.fr       */
+/*   Updated: 2020/02/24 14:15:53 by wvenita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *ft_str_join_r(char *str1, const char *to_add, t_flag *flag)
+char	*ft_str_join_r(char *str1, const char *to_add, t_flag *flag)
 {
-	char *output;
-	size_t size_allocation;
-	int k;
-	int i;
+	char	*output;
+	size_t	size_allocation;
+	int		k;
+	int		i;
 
 	size_allocation = ft_len_to_alloc(
 			ft_strlen(str1) + ft_strlen(to_add), flag);

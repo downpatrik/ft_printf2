@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bigint_shift_right.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvenita <wvenita@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wvenita <wvenita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 01:55:49 by wvenita           #+#    #+#             */
-/*   Updated: 2020/02/24 01:55:50 by wvenita          ###   ########.fr       */
+/*   Updated: 2020/02/24 14:31:19 by wvenita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_bigint_shift_right(char *str, size_t nb, size_t limit)
+char	*ft_bigint_shift_right(char *str, size_t nb, size_t limit)
 {
-	size_t len;
+	size_t	len;
 
 	len = ft_strlen(str);
 	if (len == 0 || nb <= 0)

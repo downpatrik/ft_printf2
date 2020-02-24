@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_null.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvenita <wvenita@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wvenita <wvenita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 01:30:37 by wvenita           #+#    #+#             */
-/*   Updated: 2020/02/24 01:30:37 by wvenita          ###   ########.fr       */
+/*   Updated: 2020/02/24 14:16:11 by wvenita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_print_null(char *output, t_flag *flag, int fd)
+int	ft_print_null(char *output, t_flag *flag, int fd)
 {
-	char c;
-	int i;
+	char	c;
+	int		i;
 
 	i = 0;
 	c = 0;

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_nblen_ull.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvenita <wvenita@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wvenita <wvenita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 01:30:33 by wvenita           #+#    #+#             */
-/*   Updated: 2020/02/24 01:30:34 by wvenita          ###   ########.fr       */
+/*   Updated: 2020/02/24 14:16:15 by wvenita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t ft_nblen_ull(unsigned long long nb)
+size_t	ft_nblen_ull(unsigned long long nb)
 {
-	size_t nblen;
+	size_t	nblen;
 
 	nblen = 0;
 	if (nb == 0)

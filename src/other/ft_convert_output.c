@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_output.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvenita <wvenita@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wvenita <wvenita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 01:29:50 by wvenita           #+#    #+#             */
-/*   Updated: 2020/02/24 01:29:50 by wvenita          ###   ########.fr       */
+/*   Updated: 2020/02/24 14:21:29 by wvenita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t get_len(long long nb, size_t base_len)
+static size_t	get_len(long long nb, size_t base_len)
 {
-	size_t size;
-	long long nb_tmp;
+	size_t		size;
+	long long	nb_tmp;
 
 	size = 0;
 	nb_tmp = nb;
@@ -27,13 +27,13 @@ static size_t get_len(long long nb, size_t base_len)
 	return (size);
 }
 
-static char *ft_convert_base_offset(char *decimal, char *base, t_flag *flag)
+static char		*ft_convert_base_offset(char *decimal, char *base, t_flag *flag)
 {
-	char *output;
-	long long result;
-	size_t i;
-	size_t len;
-	int mem;
+	char		*output;
+	long long	result;
+	size_t		i;
+	size_t		len;
+	int			mem;
 
 	i = -1;
 	result = 0;
@@ -54,14 +54,15 @@ static char *ft_convert_base_offset(char *decimal, char *base, t_flag *flag)
 	return (output);
 }
 
-static int is_convertible(t_flag *flag)
+static int		is_convertible(t_flag *flag)
 {
-	return (flag->conv == 'o' || flag->conv == 'x' || flag->conv == 'X' || flag->conv == 'b' || flag->conv == 'p');
+	return (flag->conv == 'o' || flag->conv == 'x' || flag->conv == 'X' ||
+			flag->conv == 'b' || flag->conv == 'p');
 }
 
-char *ft_convert_output(char *str, t_flag *flag)
+char			*ft_convert_output(char *str, t_flag *flag)
 {
-	char *output;
+	char	*output;
 
 	output = NULL;
 	if (is_convertible(flag))

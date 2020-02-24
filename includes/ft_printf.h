@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvenita <wvenita@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wvenita <wvenita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/24 00:46:53 by wvenita           #+#    #+#             */
-/*   Updated: 2020/02/24 00:46:53 by wvenita          ###   ########.fr       */
+/*   Created: 2020/02/24 14:35:07 by wvenita           #+#    #+#             */
+/*   Updated: 2020/02/24 14:58:49 by wvenita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,22 @@
 # define ANSI_COLOR_MAGENTA "\x1b[35m"
 # define ANSI_COLOR_RESET "\x1b[0m"
 
-# define LENGTH_H (1 << 1)
-# define LENGTH_HH (1 << 2)
-# define LENGTH_L (1 << 3)
-# define LENGTH_LL (1 << 4)
-# define LENGTH_J (1 << 5)
-# define LENGTH_Z (1 << 6)
-# define LENGTH_L_MAJ (1 << 7)
-# define KEY_PERCENTAGE (1 << 1)
-# define KEY_C (1 << 2)
-# define KEY_D (1 << 3)
-# define KEY_NB (1 << 4)
-# define KEY_P (1 << 5)
-# define KEY_S (1 << 6)
-# define KEY_F (1 << 7)
-# define KEY_E (1 << 8)
+# define LENGTH_H 2
+# define LENGTH_HH 4
+# define LENGTH_L 8
+# define LENGTH_LL 16
+# define LENGTH_J 32
+# define LENGTH_Z 64
+# define LENGTH_L_MAJ 128
+
+# define KEY_PERCENTAGE 2
+# define KEY_C 4
+# define KEY_D 8
+# define KEY_NB 16
+# define KEY_P 32
+# define KEY_S 64
+# define KEY_F 128
+# define KEY_E 256
 
 # define MAX_ALLOCATION_LFLOAT 5000
 # define MAX_ALLOCATION_FLOAT 1024
@@ -122,107 +123,108 @@
 # define H63 "0.000000000000000000108420217248550443400745280086994171142578125"
 # define H64 "0.000000000000000000054210108624275221700372640043497085571289062"
 
-typedef struct        s_flag
+typedef struct		s_flag
 {
-    int                key;
-    int                length;
-    char            conv;
-    int                precision;
-    unsigned int    width;
-    int                zero;
-    int                plus;
-    int                minus;
-    int                space;
-    int                hash;
-    char            character;
-    int                character_i;
-    size_t            size_allocation;
-}                    t_flag;
+	int				key;
+	int				length;
+	char			conv;
+	int				precision;
+	unsigned int	width;
+	int				zero;
+	int				plus;
+	int				minus;
+	int				space;
+	int				hash;
+	char			character;
+	int				character_i;
+	size_t			size_allocation;
+}					t_flag;
 
-typedef char        *(t_ft)(va_list *, t_flag *);
-typedef struct        s_ft_print
+typedef char		*(t_ft)(va_list *, t_flag *);
+typedef struct		s_ft_print
 {
-    int                key;
-    int                length;
-    t_ft            *fct;
-}                    t_ft_print;
+	int				key;
+	int				length;
+	t_ft			*fct;
+}					t_ft_print;
 
-typedef struct        s_color
+typedef struct		s_color
 {
-    char            key[10];
-    char            str[10];
-}                    t_color;
+	char			key[10];
+	char			str[10];
+}					t_color;
 
-int                    ft_printf(const char *format, ...);
-int                    ft_dprintf(int fd, const char *format, ...);
-int                    ft_sprintf(char *str, const char *format, ...);
-char                *ft_str_join_r(char *str1, const char *add, t_flag *flag);
-char                *ft_str_join(const char *add, char *str1, t_flag *flag);
-char                *ft_get_color(const char *str);
-char                *ft_itoa_ll(long long nb);
-size_t                ft_flaglen(const char *str);
-char                *ft_apply_padding_p(char *str, t_flag *f, int s);
-char                *ft_apply_padding_nb(char *str, t_flag *flag, int sign);
-char                *ft_apply_padding_str(char *str, t_flag *flag, int sign);
-char                *ft_apply_padding_e(char *str, t_flag *f, int sign, int e);
-char                *ft_apply_precision_nb(char *str, t_flag *flag, int sign);
-char                *ft_apply_precision_str(char *str, t_flag *flag, int sign);
-char                *ft_apply_precision_p(char *str, int precision);
-int                    get_length(char *flag);
-char                *ft_printf_arg(va_list *ap, t_flag *flag);
-t_flag                *ft_create_flag(char *str, va_list *p_ap);
-int                    ft_flag_get_space(char *flag);
-int                    ft_flag_get_hash(char *flag);
-int                    ft_flag_get_length(char *flag);
-int                    ft_flag_get_minus(char *flag);
-int                    ft_flag_get_plus(char *flag);
-int                    ft_flag_get_precision(char *flag, va_list *p_ap);
-int                    ft_flag_get_width(char *str, va_list *p_ap, t_flag *flag);
-int                    ft_flag_get_zero(char *flag);
-int                    ft_flag_get_key(char *flag);
-char                *ft_add_char(char *str, t_flag *flag, char c);
-char                *ft_strcat(char *s1, const char *s2);
-int                    ft_len_to_alloc(size_t original_nblen, t_flag *flag);
-char                *ft_print_d(va_list *ap, t_flag *flag);
-char                *ft_print_d_l(va_list *ap, t_flag *flag);
-char                *ft_print_d_ll(va_list *ap, t_flag *flag);
-char                *ft_print_d_h(va_list *ap, t_flag *flag);
-char                *ft_print_d_hh(va_list *ap, t_flag *flag);
-char                *ft_print_percent(va_list *ap, t_flag *flag);
-char                *ft_print_nb(va_list *ap, t_flag *flag);
-char                *ft_print_nb_l(va_list *ap, t_flag *flag);
-char                *ft_print_nb_ll(va_list *ap, t_flag *flag);
-char                *ft_print_nb_hh(va_list *ap, t_flag *flag);
-char                *ft_print_nb_h(va_list *ap, t_flag *flag);
-char                *ft_print_f(va_list *ap, t_flag *flag);
-char                *ft_print_f_l(va_list *ap, t_flag *flag);
-char                *ft_print_f_l_maj(va_list *ap, t_flag *flag);
-char                *ft_print_e(va_list *ap, t_flag *flag);
-char                *ft_print_e_l(va_list *ap, t_flag *flag);
-char                *ft_print_e_l_maj(va_list *ap, t_flag *flag);
-char                *ft_print_s(va_list *ap, t_flag *flag);
-char                *ft_print_c(va_list *ap, t_flag *flag);
-char                *ft_print_p(va_list *ap, t_flag *flag);
-char                *ft_convert_output(char *str, t_flag *flag);
-size_t                ft_nblen_ull(unsigned long long nb);
-char                *ft_ulltoa_offset(unsigned long long nb, size_t size);
-int                    ft_str_precision_count(char *str, int offset);
-char                *ft_fltoa(long double nb, char *str, t_flag *flag, int s);
-char                *ft_ftoa(double nb, char *str, t_flag *flag, int s);
-char                *ft_get_binary(unsigned char c, char *tmp_str);
-int                    ft_can_apply_plus(t_flag *flag, int sign);
-int                    ft_can_apply_space(t_flag *flag, int sign);
-int                    ft_can_apply_prefix(t_flag *flag, int sign);
-int                    ft_can_apply_minus(t_flag *flag, int sign);
-int                    ft_can_fill_to_the_left(t_flag *flag, int sign);
-int                    ft_can_fill_to_the_right(t_flag *flag, int sign);
-int                    ft_can_fill_with_zeros(t_flag *flag, int sign);
-int                    ft_can_fill_with_zeros_float(t_flag *flag, int sign);
-char                *ft_strdup_alloc(const char *s1, size_t size_allocation);
-int                    ft_print_null(char *output, t_flag *flag, int fd);
-char                *ft_strcat_char(char *s1, const char c);
-int                    ft_format_is_valid(const char *format);
-char                *ft_itoa_e(int nb);
-int                    ft_apply_e(char *output);
-int                 is_valid_conversion(char c);
+int					ft_printf(const char *format, ...);
+int					ft_dprintf(int fd, const char *format, ...);
+int					ft_sprintf(char *str, const char *format, ...);
+char				*ft_str_join_r(char *str1, const char *add, t_flag *flag);
+char				*ft_str_join(const char *add, char *str1, t_flag *flag);
+char				*ft_get_color(const char *str);
+char				*ft_itoa_ll(long long nb);
+size_t				ft_flaglen(const char *str);
+char				*ft_apply_padding_p(char *str, t_flag *f, int s);
+char				*ft_apply_padding_nb(char *str, t_flag *flag, int sign);
+char				*ft_apply_padding_str(char *str, t_flag *flag, int sign);
+char				*ft_apply_padding_e(char *str, t_flag *f, int sign, int e);
+char				*ft_apply_precision_nb(char *str, t_flag *flag, int sign);
+char				*ft_apply_precision_str(char *str, t_flag *flag, int sign);
+char				*ft_apply_precision_p(char *str, int precision);
+int					get_length(char *flag);
+char				*ft_printf_arg(va_list *ap, t_flag *flag);
+t_flag				*ft_create_flag(char *str, va_list *p_ap);
+int					ft_flag_get_space(char *flag);
+int					ft_flag_get_hash(char *flag);
+int					ft_flag_get_length(char *flag);
+int					ft_flag_get_minus(char *flag);
+int					ft_flag_get_plus(char *flag);
+int					ft_flag_get_precision(char *flag, va_list *p_ap);
+int					ft_flag_get_width(char *str, va_list *p_ap, t_flag *flag);
+int					ft_flag_get_zero(char *flag);
+int					ft_flag_get_key(char *flag);
+char				*ft_add_char(char *str, t_flag *flag, char c);
+char				*ft_strcat(char *s1, const char *s2);
+int					ft_len_to_alloc(size_t original_nblen, t_flag *flag);
+char				*ft_print_d(va_list *ap, t_flag *flag);
+char				*ft_print_d_l(va_list *ap, t_flag *flag);
+char				*ft_print_d_ll(va_list *ap, t_flag *flag);
+char				*ft_print_d_h(va_list *ap, t_flag *flag);
+char				*ft_print_d_hh(va_list *ap, t_flag *flag);
+char				*ft_print_percent(va_list *ap, t_flag *flag);
+char				*ft_print_nb(va_list *ap, t_flag *flag);
+char				*ft_print_nb_l(va_list *ap, t_flag *flag);
+char				*ft_print_nb_ll(va_list *ap, t_flag *flag);
+char				*ft_print_nb_hh(va_list *ap, t_flag *flag);
+char				*ft_print_nb_h(va_list *ap, t_flag *flag);
+char				*ft_print_f(va_list *ap, t_flag *flag);
+char				*ft_print_f_l(va_list *ap, t_flag *flag);
+char				*ft_print_f_l_maj(va_list *ap, t_flag *flag);
+char				*ft_print_e(va_list *ap, t_flag *flag);
+char				*ft_print_e_l(va_list *ap, t_flag *flag);
+char				*ft_print_e_l_maj(va_list *ap, t_flag *flag);
+char				*ft_print_s(va_list *ap, t_flag *flag);
+char				*ft_print_c(va_list *ap, t_flag *flag);
+char				*ft_print_p(va_list *ap, t_flag *flag);
+char				*ft_convert_output(char *str, t_flag *flag);
+size_t				ft_nblen_ull(unsigned long long nb);
+char				*ft_ulltoa_offset(unsigned long long nb, size_t size);
+int					ft_str_precision_count(char *str, int offset);
+char				*ft_fltoa(long double nb, char *str, t_flag *flag, int s);
+char				*ft_ftoa(double nb, char *str, t_flag *flag, int s);
+char				*ft_get_binary(unsigned char c, char *tmp_str);
+int					ft_can_apply_plus(t_flag *flag, int sign);
+int					ft_can_apply_space(t_flag *flag, int sign);
+int					ft_can_apply_prefix(t_flag *flag, int sign);
+int					ft_can_apply_minus(t_flag *flag, int sign);
+int					ft_can_fill_to_the_left(t_flag *flag, int sign);
+int					ft_can_fill_to_the_right(t_flag *flag, int sign);
+int					ft_can_fill_with_zeros(t_flag *flag, int sign);
+int					ft_can_fill_with_zeros_float(t_flag *flag, int sign);
+char				*ft_strdup_alloc(const char *s1, size_t size_allocation);
+int					ft_print_null(char *output, t_flag *flag, int fd);
+char				*ft_strcat_char(char *s1, const char c);
+int					ft_format_is_valid(const char *format);
+char				*ft_itoa_e(int nb);
+int					ft_apply_e(char *output);
+int					is_valid_conversion(char c);
+
 #endif

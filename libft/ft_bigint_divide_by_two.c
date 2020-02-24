@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bigint_divide_by_two.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvenita <wvenita@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: wvenita <wvenita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 01:55:28 by wvenita           #+#    #+#             */
-/*   Updated: 2020/02/24 01:55:29 by wvenita          ###   ########.fr       */
+/*   Updated: 2020/02/24 14:31:37 by wvenita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char ft_get_next_digit(char digit, int next_is_even)
+static char	ft_get_next_digit(char digit, int next_is_even)
 {
 	if (next_is_even == 0)
 	{
@@ -40,9 +40,9 @@ static char ft_get_next_digit(char digit, int next_is_even)
 	return (0);
 }
 
-static int is_over(char *output, size_t *p_i, size_t *p_j, size_t limit)
+static int	is_over(char *output, size_t *p_i, size_t *p_j, size_t limit)
 {
-	int finished;
+	int	finished;
 
 	finished = 0;
 	while (*p_i < limit - 1 && output[*p_i] && ft_isdigit(output[*p_i]) == 0)
@@ -66,12 +66,12 @@ static int is_over(char *output, size_t *p_i, size_t *p_j, size_t limit)
 	return (finished);
 }
 
-char *ft_bigint_divide_by_two(char *output, size_t limit)
+char		*ft_bigint_divide_by_two(char *output, size_t limit)
 {
-	size_t i;
-	size_t j;
-	int finished;
-	int even;
+	size_t	i;
+	size_t	j;
+	int		finished;
+	int		even;
 
 	output = ft_bigint_shift_right(output, 1, limit);
 	output[0] = '0';
